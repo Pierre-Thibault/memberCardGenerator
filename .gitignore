@@ -1,0 +1,10 @@
+# Pycharm
+.idea/
+
+#Python
+*.pyc
+
+# Config stuff
+settings.py
+memberCardConvertToPdf
+

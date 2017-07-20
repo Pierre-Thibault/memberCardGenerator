@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Copy this bash script to memberCardConvertToPdf and change the path as needed
+
+INKSCAPE="inkscape binary location"
+
+# Destination folder where the member cards will be generated
+DEST_GENERATED_FOLDER="path to folder that will contain the generated files"
+
+
+for file in $DEST_GENERATED_FOLDER/*.svg
+do
+    $INKSCAPE $file --export-pdf=$DEST_GENERATED_FOLDER/`basename "$file" .svg`.pdf
+done
