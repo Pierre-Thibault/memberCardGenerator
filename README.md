@@ -20,7 +20,7 @@ You will have to adapt the project for your needs. A basic knowledge of Python i
 
 * Bash
 * Inkscape
-* Python (I have version 2.7.12. I haven't tested with other versions)
+* Python (I upgraded to 3.7.2)
 * An SMTP server to send the emails
 
 ## Artifacts to produce
