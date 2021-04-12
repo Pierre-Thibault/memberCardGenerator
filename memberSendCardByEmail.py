@@ -5,6 +5,7 @@ import mimetypes as _mimetypes
 from os import path as _path
 import base64 as _base64
 import smtplib as _smtplib
+import traceback as _traceback
 from simple_settings import settings as _settings
 
 
@@ -59,6 +60,15 @@ if __name__ == "__main__":
                     outer.attach(part1)
 
                     # Now send the message
-                    smtp.sendmail(_settings.SMTP_USER, email, outer.as_bytes())
+                    try:
+                        smtp.sendmail(_settings.SMTP_USER, email, outer.as_bytes())
+                    except _smtplib.SMTPRecipientsRefused:
+                        print(f'Cannot send to {email}. Recipient refused.')
+                    except Exception as e:
+                        print(f'Cannot send to {email} due to server error: {e}')
+                        _traceback.print_exc()
+                        break
+                    else:
+                        print(f'Mail sent to {email}')
         finally:
             smtp.quit()
