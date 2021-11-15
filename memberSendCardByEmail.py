@@ -1,4 +1,5 @@
-from email.mime.image import MIMEImage as _MIMEImage
+from email import encoders as _encoders
+from email.mime.base import MIMEBase as _MimeBase
 from email.mime.multipart import MIMEMultipart as _MIMEMultipart
 from email.mime.text import MIMEText as _MIMEText
 import mimetypes as _mimetypes
@@ -33,7 +34,7 @@ if __name__ == "__main__":
                 # Read names and emails:
                 line = line.strip()
                 if line:
-                    name, email, _ = line.split(",")
+                    name, email, _, _ = line.split(",")
 
                     # Create the container (outer) email message.
                     outer = _MIMEMultipart()
@@ -49,8 +50,11 @@ if __name__ == "__main__":
                     ctype, encoding = _mimetypes.guess_type(source_pdf)
                     maintype, subtype = ctype.split('/', 1)
                     with open(source_pdf, 'rb') as fp:
-                        msg = _MIMEImage(fp.read(), _subtype=subtype)
+                        msg = _MimeBase("application", "pdf")
+                        msg.set_payload(fp.read())
 
+                    _encoders.encode_base64(msg)
+                    
                     # Set the filename parameter
                     msg.add_header('Content-Disposition', 'attachment', filename=_settings.EMAIL_PDF)
                     outer.attach(msg)

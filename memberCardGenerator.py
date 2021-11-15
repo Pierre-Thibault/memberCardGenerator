@@ -22,7 +22,7 @@ if __name__ == "__main__":
             # Read names and emails:
             line = line.strip()
             if line:
-                name, email, member_type = line.split(",")
+                name, email, member_type, number = line.split(",")
                 assert member_type in ("0", "1")
                 member_type = int(member_type)
 
@@ -30,7 +30,7 @@ if __name__ == "__main__":
                 svg_content = (svg_content_regular, svg_content_life_time)[member_type]
 
                 # Set name and email:
-                svg_content = svg_content.replace("{name}", name).replace("{email}", email)
+                svg_content = svg_content.replace("{name}", name).replace("{email}", email).replace("{number}", number)
 
                 # Write file:
                 destination_svg = _path.join(_settings.DEST_GENERATED_FOLDER, str(index) + ".svg")

@@ -32,7 +32,7 @@ You will have to adapt the project for your needs. A basic knowledge of Python i
 
 ### SVG files
 
-Create one SVG file for regular members and another for life time members. Use {name} and {email} as placeholder for the name and email of the member. Make {name} and {email} left justified. SVG image editor are using x and y coordinate to position text so {name} and {email} are not going to be well centered of right justified if their length changes.
+Create one SVG file for regular members and another for life time members. Use {name}, {email} and {number} as placeholder for the name, email and member number of the member. Make {name}, {email} and {number} left justified. SVG image editor are using x and y coordinate to position text so {name}, {email} and {number} are not going to be well centered of right justified if their length changes.
 
 ### Text body file
 
@@ -40,11 +40,12 @@ Type the text for the body of the email and save it as a UTF-8 text file.
 
 ### CSV member list
 
-Create a CVS file for the member list receiving cards. They are three column:
+Create a CVS file for the member list receiving cards. There are four columns with no header line:
 
 * Name of the member
 * Member email
 * Member type: 0 regular, 1 life time
+* Member number
 
 ## Preparing the project
 
