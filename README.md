@@ -46,6 +46,7 @@ Create a CVS file for the member list receiving cards. There are four columns wi
 * Member email
 * Member type: 0 regular, 1 life time
 * Member number
+* Expiration year
 
 ## Preparing the project
 

@@ -34,7 +34,7 @@ if __name__ == "__main__":
                 # Read names and emails:
                 line = line.strip()
                 if line:
-                    name, email, _, _ = line.split(",")
+                    name, email, _, _, _ = line.split(",")
 
                     # Create the container (outer) email message.
                     outer = _MIMEMultipart()
